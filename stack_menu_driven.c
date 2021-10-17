@@ -13,12 +13,14 @@ int pop(struct stack*);
 int main(){
     struct stack s;
 	s.tos=-1;
-    int x;
+    int x,C;
 
+do{
     printf("\nselect the operation");
     printf("\n1. PUSH");
     printf("\n2. POP");
     printf("\n3. QUIT");
+
 
  printf("\n Enter your choice:");
  int ch;
@@ -26,35 +28,37 @@ int main(){
 
  switch(ch){
      case 1:
-		for(int i=1; i<=6; i++){
-		printf("\nEnter an element which you want to push : ");
-		scanf("%d",&x);
-		push(&s,x);
-		break;
-    
 
-}
+            printf("\nEnter an element which you want to push : ");
+            scanf("%d",&x);
+            push(&s,x);
+            break;
+
+
+
      case 2:
-     for(int i=1; i<=6; i++){
-     pop(&s);
-     break;
-     
+            pop(&s);
+            break;
 
-}
-case 3:
-exit(0);
-break;
 
-default:
-printf("Enter valid operation ");
+
+    case 3:
+        exit(0);
+
+
+    default:
+        printf("Enter valid operation ");
 
 
  }
 
- 
+printf("\nDo you want to continue (1/0)  : ");
+scanf("%d",&C);
 
+}
+while(C==1);
 
-    return 0;
+return 0;
 }
 
 void push(struct stack*p,int x){
@@ -65,7 +69,7 @@ void push(struct stack*p,int x){
     else{
         p->tos=p->tos+1;
         p->arr[p->tos]=x;
-        printf("\nPushed successfully %d",x);
+        printf("\n %d Pushed successfully ",x);
 
     }
 
@@ -74,7 +78,7 @@ void push(struct stack*p,int x){
 int pop(struct stack *p){
     if(p->tos==-1){
         printf("\nStack underflow ");
-        return;
+        return 0;
     }
     else{
         int popped=p->arr[p->tos];
@@ -83,4 +87,6 @@ int pop(struct stack *p){
 
     }
 }
+
+
 
